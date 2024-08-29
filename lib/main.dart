@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-
+import 'package:flutter/cupertino.dart';
 void main() {
   // 应用入口
   runApp(const MyApp());
@@ -245,6 +245,9 @@ class _GetStateObjectRouteState extends State<GetStateObjectRoute>{
                 child: Text('显示SnackBar'),
               );
             }),
+            Container(width: 100,height: 100,padding: const EdgeInsets.all(16.0),color: Colors.red,child: const Text('i am a container')),
+            TextButton(onPressed: ()=>print('handlePress'), child: const Text('按我')),
+            CupertinoButton(child:const Text('APPLE BUTTON'), onPressed: ()=>print('handlePress'))
           ],
         ),
       ),
