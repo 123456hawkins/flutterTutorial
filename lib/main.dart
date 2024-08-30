@@ -25,6 +25,9 @@ class MyApp extends StatelessWidget {
   }
 }
 class NewRoute extends StatelessWidget{
+   const NewRoute({super.key, required this.text});
+   final String text;
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -35,7 +38,9 @@ class NewRoute extends StatelessWidget{
         child:Column(
           children: [
             const Text('This is new route'),
-            TextButton(onPressed: ()=>Navigator.pop(context), child: const Text('点我跳转回去'))
+            TextButton(onPressed: ()=>Navigator.pop(context), child: const Text('点我跳转回去')),
+
+            Row(children: [const Text('路由传来的text:'), Text(text,style: const TextStyle(color: Colors.red),)],)
           ],
         )
       ),
@@ -44,7 +49,26 @@ class NewRoute extends StatelessWidget{
 
 }
 
+// tipRoute用于接受路由携带的参数
+class TipRoute extends StatelessWidget{
+  const TipRoute({Key? key,required this.text}):super(key: key);
+  final String text;
 
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('路由传参测试'),
+      ),
+      body: Padding(padding: EdgeInsets.all(18),child: Column(
+        children: <Widget>[
+          Text(text),
+          ElevatedButton(onPressed: ()=>Navigator.pop(context,'我是返回值'), child: Text('点我返回'))
+        ],
+      ),),
+    );
+  }
+}
 //测试statelessWidget
 class Echo extends StatelessWidget{
   const Echo({
@@ -141,10 +165,11 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) {
-                  return NewRoute();
+                  return NewRoute(text:'chuanguoqu');
                 },maintainState: true,fullscreenDialog: true),
               );
-            }, child: const Text('点我跳转新页面'))
+            }, child: const Text('点我跳转新页面')),
+            ElevatedButton(onPressed: ()async{var result=await Navigator.push(context,MaterialPageRoute(builder: (context){return TipRoute(text: '我是提示xxx');}));print('路由返回值:$result');}, child: const Text('打开提示页')),
           ],
         ),
       ),
