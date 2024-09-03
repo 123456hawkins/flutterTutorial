@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:english_words/english_words.dart';
 void main() {
   // 应用入口
   runApp(const MyApp());
@@ -203,6 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Navigator.pushNamed(context, 'new_route',arguments: {'message':"命名路由传来的参数"});
             }, child: const Text('点我跳转新页面')),
             ElevatedButton(onPressed: ()async{var result=await Navigator.pushNamed(context, 'tip_route',arguments: {'message':'This is a tip message'});print('路由返回值:$result');}, child: const Text('打开提示页')),
+            RandomWordsWidget()
           ],
         ),
       ),
@@ -462,5 +464,12 @@ class _TapboxCState extends State<TapboxC>{
       ),
 
     );
+  }
+}
+class RandomWordsWidget extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    final wordPair=WordPair.random();
+    return Padding(padding: const EdgeInsets.all(8.0),child: Text(wordPair.toString()));
   }
 }
