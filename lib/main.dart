@@ -19,13 +19,34 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute:"/", //名为"/"的路由作为应用的home(首页)
-      routes: {
-        "new_route":(context)=>const NewRoute(),
-        "tip_route":(context){
-          final args=ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>?;
-          final message=args?['message']??'';
-          return TipRoute(text: message);},
-        "/":(context)=>const MyHomePage(title: 'Flutter Home')
+      // routes: {
+      //   "new_route":(context)=>const NewRoute(),
+      //   "tip_route":(context){
+      //     final args=ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>?;
+      //     final message=args?['message']??'';
+      //     return TipRoute(text: message);},
+      //   "/":(context)=>const MyHomePage(title: 'Flutter Home')
+      // },
+      // 路由钩子
+      onGenerateRoute: (RouteSettings settings){
+        return MaterialPageRoute(builder: (context){
+          String routeName=settings.name??'/';
+          // bool isLoggedIn=false;
+          switch(routeName){
+            case '/':
+              return const MyHomePage(title: 'Flutter Home');
+            case 'tip_route':
+              final args=ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>?;
+              final message=args?['message']??'';
+              return TipRoute(text: message);
+            case 'new_route':
+              return const NewRoute(); // 处理未定义的路由
+            default:
+              return const MyHomePage(title: 'Flutter Home');
+          }
+
+
+        });
       },
       // home: const MyHomePage(title: ' Test Page'),
       // home: const GetStateObjectRoute(),
