@@ -1,6 +1,6 @@
-# flutter_tutorial
+# flutter_project
 
-flutterTutorial
+A new Flutter project.
 
 ## Getting Started
 
