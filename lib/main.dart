@@ -4,55 +4,77 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_project/pages/chapter3/c3main.dart';
+import 'package:go_router/go_router.dart';
 void main() {
   // 应用入口
   runApp(const MyApp());
 }
+final GoRouter _router=GoRouter(
+    routes:<RouteBase>[
+      GoRoute(path: '/',builder: (BuildContext context,GoRouterState state) {
+        return const MyHomePage(title: 'Flutter Home');
+      },routes: [
+        GoRoute(path: 'tip_route',builder: (BuildContext context,GoRouterState state) {
+          final args=ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>?;
+          final message=args?['message']??'';
+          return  TipRoute(text: message);
+        }),
+        GoRoute(path: 'new_route',builder: (BuildContext context,GoRouterState state) {
+          return const NewRoute();
+        }),
+        GoRoute(path: 'chapter_three',builder: (BuildContext context,GoRouterState state){
+          return const c3main();
+        })
+      ]),
 
+    ] );
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurpleAccent),
-        useMaterial3: true,
-      ),
-      initialRoute:"/", //名为"/"的路由作为应用的home(首页)
-      // routes: {
-      //   "new_route":(context)=>const NewRoute(),
-      //   "tip_route":(context){
-      //     final args=ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>?;
-      //     final message=args?['message']??'';
-      //     return TipRoute(text: message);},
-      //   "/":(context)=>const MyHomePage(title: 'Flutter Home')
-      // },
-      // 路由钩子
-      onGenerateRoute: (RouteSettings settings){
-        return MaterialPageRoute(builder: (context){
-          String routeName=settings.name??'/';
-          // bool isLoggedIn=false;
-          switch(routeName){
-            case '/':
-              return const MyHomePage(title: 'Flutter Home');
-            case 'tip_route':
-              final args=ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>?;
-              final message=args?['message']??'';
-              return TipRoute(text: message);
-            case 'new_route':
-              return const NewRoute(); // 处理未定义的路由
-            default:
-              return const MyHomePage(title: 'Flutter Home');
-          }
-
-
-        });
-      },
-      // home: const MyHomePage(title: ' Test Page'),
-      // home: const GetStateObjectRoute(),
-
-    );
+    // return MaterialApp(
+    //   title: 'Flutter Demo',
+    //   theme: ThemeData(
+    //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurpleAccent),
+    //     useMaterial3: true,
+    //   ),
+    //   // initialRoute:"/", //名为"/"的路由作为应用的home(首页)
+    //   // routes: {
+    //   //   "new_route":(context)=>const NewRoute(),
+    //   //   "tip_route":(context){
+    //   //     final args=ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>?;
+    //   //     final message=args?['message']??'';
+    //   //     return TipRoute(text: message);},
+    //   //   "/":(context)=>const MyHomePage(title: 'Flutter Home')
+    //   // },
+    //   // 路由钩子
+    //   // onGenerateRoute: (RouteSettings settings){
+    //   //   return MaterialPageRoute(builder: (context){
+    //   //     String routeName=settings.name??'/';
+    //   //     // bool isLoggedIn=false;
+    //   //     switch(routeName){
+    //   //       case '/':
+    //   //         return const MyHomePage(title: 'Flutter Home');
+    //   //       case 'tip_route':
+    //   //         final args=ModalRoute.of(context)!.settings.arguments as Map<String,dynamic>?;
+    //   //         final message=args?['message']??'';
+    //   //         return TipRoute(text: message);
+    //   //       case 'new_route':
+    //   //         return const NewRoute(); // 处理未定义的路由
+    //   //       default:
+    //   //         return const MyHomePage(title: 'Flutter Home');
+    //   //     }
+    //   //
+    //   //
+    //   //   });
+    //   // },
+    //   // home: const MyHomePage(title: ' Test Page'),
+    //   // home: const GetStateObjectRoute(),
+    //
+    // );
+    return MaterialApp.router(routerConfig: _router);
   }
 }
 class NewRoute extends StatelessWidget{
@@ -201,10 +223,14 @@ class _MyHomePageState extends State<MyHomePage> {
               //     return NewRoute(text:'chuanguoqu');
               //   },maintainState: true,fullscreenDialog: true),
               // );
-              Navigator.pushNamed(context, 'new_route',arguments: {'message':"命名路由传来的参数"});
+              // Navigator.pushNamed(context, '/new_route',arguments: {'message':"命名路由传来的参数"});
+              context.go('/new_route?message=命名路由传来的参数');
             }, child: const Text('点我跳转新页面')),
-            ElevatedButton(onPressed: ()async{var result=await Navigator.pushNamed(context, 'tip_route',arguments: {'message':'This is a tip message'});print('路由返回值:$result');}, child: const Text('打开提示页')),
-            RandomWordsWidget()
+            
+            // ElevatedButton(onPressed: ()async{var result=await Navigator.pushNamed(context, '/tip_route',arguments: {'message':'This is a tip message'});print('路由返回值:$result');}, child: const Text('打开提示页')),
+            ElevatedButton(onPressed: (){context.go('/tip_route?message=新路由');}, child: const Text('打开提示页')),
+            // RandomWordsWidget(),
+            ElevatedButton(onPressed: (){context.go('/chapter_three');}, child: const Text('跳转第三章'))
           ],
         ),
       ),
