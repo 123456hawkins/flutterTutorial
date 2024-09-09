@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_project/pages/chapter3/button_page.dart';
 import 'package:flutter_project/pages/chapter3/c3main.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_project/pages/chapter3/TextPage.dart';
@@ -29,6 +30,9 @@ final GoRouter _router=GoRouter(
         },routes: [
           GoRoute(path: 'textPage',builder: (BuildContext context,GoRouterState state){
             return const TextPage();
+          }),
+          GoRoute(path: 'buttonPage',builder: (BuildContext context ,GoRouterState state){
+            return const button_page();
           })
         ])
       ]),

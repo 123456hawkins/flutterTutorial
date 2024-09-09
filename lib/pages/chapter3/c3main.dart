@@ -10,7 +10,8 @@ class c3main extends StatelessWidget{
       body: Center(child: Column(
         children: [
           const Text('欢迎来到第三章！'),
-          ElevatedButton(onPressed: (){context.go('/chapter_three/textPage');}, child: const Text('3.1.Text组件'))
+          ElevatedButton(onPressed: (){context.go('/chapter_three/textPage');}, child: const Text('3.1.Text组件')),
+          ElevatedButton(onPressed: (){context.go('/chapter_three/buttonPage');}, child: const Text('3.2.Button组件'))
         ],
       )),
     );
