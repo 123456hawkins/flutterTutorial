@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_project/pages/chapter3/c3main.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_project/pages/chapter3/TextPage.dart';
 void main() {
   // 应用入口
   runApp(const MyApp());
@@ -25,7 +26,11 @@ final GoRouter _router=GoRouter(
         }),
         GoRoute(path: 'chapter_three',builder: (BuildContext context,GoRouterState state){
           return const c3main();
-        })
+        },routes: [
+          GoRoute(path: 'textPage',builder: (BuildContext context,GoRouterState state){
+            return const TextPage();
+          })
+        ])
       ]),
 
     ] );
