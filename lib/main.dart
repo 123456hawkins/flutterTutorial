@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter_project/pages/chapter3/button_page.dart';
 import 'package:flutter_project/pages/chapter3/c3main.dart';
+import 'package:flutter_project/pages/chapter3/image_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_project/pages/chapter3/TextPage.dart';
 void main() {
@@ -33,6 +34,9 @@ final GoRouter _router=GoRouter(
           }),
           GoRoute(path: 'buttonPage',builder: (BuildContext context ,GoRouterState state){
             return const button_page();
+          }),
+          GoRoute(path: 'imagePage',builder: (BuildContext context,GoRouterState state){
+            return const image_page();
           })
         ])
       ]),
