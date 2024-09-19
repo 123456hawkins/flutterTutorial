@@ -37,7 +37,12 @@ class c3main extends StatelessWidget {
               onPressed: () {
                 context.go('/chapter_three/inputPage');
               },
-              child: const Text('3.3.输入框和表单'))
+              child: const Text('3.3.输入框和表单')),
+          ElevatedButton(
+              onPressed: () {
+                context.go("/chapter_three/ProgressPage");
+              },
+              child: const Text('3.4.进度提示器'))
         ],
       )),
     );

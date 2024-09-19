@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_project/pages/chapter3/ProgressPage.dart';
 import 'package:flutter_project/pages/chapter3/button_page.dart';
 import 'package:flutter_project/pages/chapter3/c3main.dart';
 import 'package:flutter_project/pages/chapter3/image_page.dart';
@@ -67,6 +68,11 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   path: 'inputPage',
                   builder: (BuildContext context, GoRouterState state) {
                     return const InputPage();
+                  }),
+              GoRoute(
+                  path: 'progressPage',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const ProgressPage();
                   })
             ])
       ]),
