@@ -47,7 +47,7 @@ class flowAndWrap extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Center(
+          const Center(
             child: Wrap(
               spacing: 8, //主轴间距
               runSpacing: 5, //副轴间距
