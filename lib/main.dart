@@ -12,6 +12,7 @@ import 'package:flutter_project/pages/chapter3/input_page.dart';
 import 'package:flutter_project/pages/chapter3/switch_page.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
+import 'package:flutter_project/pages/chpter4/flowAndWrap.dart';
 import 'package:flutter_project/pages/chpter4/linearLayout.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_project/pages/chapter3/TextPage.dart';
@@ -93,6 +94,11 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   path: 'linearLayout',
                   builder: (BuildContext context, GoRouterState state) {
                     return const linearLayout();
+                  }),
+              GoRoute(
+                  path: 'flowAndWrap',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const flowAndWrap();
                   })
             ])
       ]),

@@ -21,7 +21,12 @@ class c4main extends StatelessWidget {
                 onPressed: () {
                   context.go('/chapter_four/linearLayout');
                 },
-                child: const Text('线性布局'))
+                child: const Text('线性布局')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_four/flowAndWrap');
+                },
+                child: const Text('流式布局'))
           ],
         ),
       ),
