@@ -32,6 +32,16 @@ class c4main extends StatelessWidget {
                   context.go('/chapter_four/stackLayout');
                 },
                 child: const Text('层叠布局')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_four/alignLayout');
+                },
+                child: const Text('对齐布局')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_four/layoutB');
+                },
+                child: const Text('LayoutBuilder、AfterLayout')),
           ],
         ),
       ),
