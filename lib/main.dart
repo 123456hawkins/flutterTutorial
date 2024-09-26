@@ -10,6 +10,9 @@ import 'package:flutter_project/pages/chapter3/c3main.dart';
 import 'package:flutter_project/pages/chapter3/image_page.dart';
 import 'package:flutter_project/pages/chapter3/input_page.dart';
 import 'package:flutter_project/pages/chapter3/switch_page.dart';
+import 'package:flutter_project/pages/chapter5/c5main.dart';
+import 'package:flutter_project/pages/chapter5/MyScaffold.dart';
+import 'package:flutter_project/pages/chapter5/paddingAndDecorated.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
@@ -118,6 +121,23 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   builder: (BuildContext context, GoRouterState state) {
                     return const layoutB();
                   })
+            ]),
+        GoRoute(
+            path: 'chapter_five',
+            builder: (BuildContext context, GoRouterState state) {
+              return const c5main();
+            },
+            routes: [
+              GoRoute(
+                  path: 'paddingAndDecorated',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const paddingAndDecorated();
+                  }),
+              GoRoute(
+                  path: 'myScaffold',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return MyScaffold();
+                  }),
             ])
       ]),
 ]);
@@ -355,7 +375,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     context.go('/chapter_four');
                   },
-                  child: const Text('跳转第四章'))
+                  child: const Text('跳转第四章')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.go('/chapter_five');
+                  },
+                  child: const Text('跳转第五章'))
             ],
           ),
         ),
