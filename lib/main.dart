@@ -13,6 +13,8 @@ import 'package:flutter_project/pages/chapter3/switch_page.dart';
 import 'package:flutter_project/pages/chapter5/c5main.dart';
 import 'package:flutter_project/pages/chapter5/MyScaffold.dart';
 import 'package:flutter_project/pages/chapter5/paddingAndDecorated.dart';
+import 'package:flutter_project/pages/chapter6/C6main.dart';
+import 'package:flutter_project/pages/chapter6/SingleChildScrollViewTestRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
@@ -138,6 +140,18 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   builder: (BuildContext context, GoRouterState state) {
                     return MyScaffold();
                   }),
+            ]),
+        GoRoute(
+            path: 'chapter_six',
+            builder: (BuildContext context, GoRouterState state) {
+              return const C6main();
+            },
+            routes: [
+              GoRoute(
+                  path: 'SingleChildScrollViewTestRoute',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return SingleChildScrollViewTestRoute();
+                  })
             ])
       ]),
 ]);
@@ -380,7 +394,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     context.go('/chapter_five');
                   },
-                  child: const Text('跳转第五章'))
+                  child: const Text('跳转第五章')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.go('/chapter_six');
+                  },
+                  child: const Text('跳转第六章')),
             ],
           ),
         ),
