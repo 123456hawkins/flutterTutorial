@@ -116,6 +116,7 @@ class _InfiniteGridViewState extends State<InfiniteView> {
 
   //模拟异步获取数据
   void _retrieveIcons() {
+    print('加载数据');
     Future.delayed(Duration(milliseconds: 500)).then((e) {
       setState(() {
         _icons.addAll([

@@ -17,6 +17,7 @@ import 'package:flutter_project/pages/chapter6/AnimatedListRoute.dart';
 import 'package:flutter_project/pages/chapter6/C6main.dart';
 import 'package:flutter_project/pages/chapter6/GridViewRoute.dart';
 import 'package:flutter_project/pages/chapter6/ListViewTestRoute.dart';
+import 'package:flutter_project/pages/chapter6/PageVeiwRoute.dart';
 import 'package:flutter_project/pages/chapter6/ScrollerMonitor.dart';
 import 'package:flutter_project/pages/chapter6/SingleChildScrollViewTestRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
@@ -175,6 +176,11 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   path: 'GridViewRoute',
                   builder: (BuildContext context, GoRouterState state) {
                     return GridViewRoute();
+                  }),
+              GoRoute(
+                  path: 'PageView',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return PageViewRoute();
                   })
             ])
       ]),
