@@ -20,7 +20,7 @@ class switch_page extends StatelessWidget {
 }
 
 class SwitchAndCheckBox extends StatefulWidget {
-  const SwitchAndCheckBox({Key? key}) : super(key: key);
+  const SwitchAndCheckBox({super.key});
   @override
   _SwitchAndCheckBox createState() => _SwitchAndCheckBox();
 }

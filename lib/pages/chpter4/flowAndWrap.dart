@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TestFlowDelegate extends FlowDelegate {
@@ -28,7 +27,7 @@ class TestFlowDelegate extends FlowDelegate {
   Size getSize(BoxConstraints constraints) {
     // 指定Flow的大小，简单起见我们让宽度尽可能大，但高度指定为200，
     // 实际开发中我们需要根据子元素所占用的具体宽高来设置Flow大小
-    return Size(double.infinity, 400);
+    return const Size(double.infinity, 400);
   }
 
   @override
@@ -98,12 +97,12 @@ class flowAndWrap extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Center(
             child: Flow(
-              delegate: TestFlowDelegate(margin: EdgeInsets.all(10)),
+              delegate: TestFlowDelegate(margin: const EdgeInsets.all(10)),
               children: [
                 Container(
                   width: 80,

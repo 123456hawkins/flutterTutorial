@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class stackLayout extends StatelessWidget {
@@ -6,7 +5,7 @@ class stackLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('层叠布局(Stack和positioned)')),
+      appBar: AppBar(title: const Text('层叠布局(Stack和positioned)')),
       body: Column(
         children: [
           ConstrainedBox(
@@ -22,13 +21,13 @@ class stackLayout extends StatelessWidget {
                 ),
                 const Positioned(left: 18, child: Text('i am hawkins')),
                 const Positioned(
-                  child: Text('your friend'),
                   top: 18,
+                  child: Text('your friend'),
                 )
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           // ConstrainedBox(

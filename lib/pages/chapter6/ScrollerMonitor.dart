@@ -1,14 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ScrollerMonitor extends StatefulWidget {
+  const ScrollerMonitor({super.key});
+
   @override
   _ScrollerMonitor createState() => _ScrollerMonitor();
 }
 
 class _ScrollerMonitor extends State<ScrollerMonitor>
     with AutomaticKeepAliveClientMixin<ScrollerMonitor> {
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
   bool showToTopBtn = false;
   String _progress = "0%";
 
@@ -80,10 +81,10 @@ class _ScrollerMonitor extends State<ScrollerMonitor>
       floatingActionButton: !showToTopBtn
           ? null
           : FloatingActionButton(
-              child: Icon(Icons.arrow_upward),
+              child: const Icon(Icons.arrow_upward),
               onPressed: () {
                 _controller.animateTo(0,
-                    duration: Duration(milliseconds: 500), curve: Curves.ease);
+                    duration: const Duration(milliseconds: 500), curve: Curves.ease);
               }),
     );
   }

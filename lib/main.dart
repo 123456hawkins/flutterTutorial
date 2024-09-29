@@ -143,7 +143,7 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
               GoRoute(
                   path: 'myScaffold',
                   builder: (BuildContext context, GoRouterState state) {
-                    return MyScaffold();
+                    return const MyScaffold();
                   }),
             ]),
         GoRoute(
@@ -155,32 +155,32 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
               GoRoute(
                   path: 'SingleChildScrollViewTestRoute',
                   builder: (BuildContext context, GoRouterState state) {
-                    return SingleChildScrollViewTestRoute();
+                    return const SingleChildScrollViewTestRoute();
                   }),
               GoRoute(
                   path: 'ListView',
                   builder: (BuildContext context, GoRouterState state) {
-                    return ListViewTestRoute();
+                    return const ListViewTestRoute();
                   }),
               GoRoute(
                   path: 'ScrollerMonitor',
                   builder: (BuildContext context, GoRouterState state) {
-                    return ScrollerMonitor();
+                    return const ScrollerMonitor();
                   }),
               GoRoute(
                   path: 'AnimatedList',
                   builder: (BuildContext context, GoRouterState state) {
-                    return AnimatedListRoute();
+                    return const AnimatedListRoute();
                   }),
               GoRoute(
                   path: 'GridViewRoute',
                   builder: (BuildContext context, GoRouterState state) {
-                    return GridViewRoute();
+                    return const GridViewRoute();
                   }),
               GoRoute(
                   path: 'PageView',
                   builder: (BuildContext context, GoRouterState state) {
-                    return PageViewRoute();
+                    return const PageViewRoute();
                   })
             ])
       ]),
@@ -282,14 +282,14 @@ class TipRoute extends StatelessWidget {
         title: const Text('路由传参测试'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         child: Column(
           children: <Widget>[
             Text(text),
             ElevatedButton(
                 onPressed: () =>
                     Navigator.pop(context, 'caocoacaocaocaooacaoa'),
-                child: Text('点我返回'))
+                child: const Text('点我返回'))
           ],
         ),
       ),
@@ -300,10 +300,10 @@ class TipRoute extends StatelessWidget {
 //测试statelessWidget
 class Echo extends StatelessWidget {
   const Echo({
-    Key? key,
+    super.key,
     required this.text,
     this.backgroundColor = Colors.grey,
-  }) : super(key: key);
+  });
   final String text;
   final Color backgroundColor;
   @override
@@ -319,6 +319,8 @@ class Echo extends StatelessWidget {
 
 // 通过build方法中的context参数查找祖先widget信息
 class FindAncestorWidget extends StatelessWidget {
+  const FindAncestorWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -380,7 +382,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FindAncestorWidget(),
+              const FindAncestorWidget(),
               const Echo(text: 'stateless  widget'),
               const Text(
                 'you has press num:',
@@ -495,7 +497,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class GetStateObjectRoute extends StatefulWidget {
-  const GetStateObjectRoute({Key? key}) : super(key: key);
+  const GetStateObjectRoute({super.key});
   @override
   State<GetStateObjectRoute> createState() => _GetStateObjectRouteState();
 }
@@ -505,7 +507,7 @@ class _GetStateObjectRouteState extends State<GetStateObjectRoute> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('子树中获取State对象'),
+        title: const Text('子树中获取State对象'),
       ),
       body: Center(
         child: Column(
@@ -513,10 +515,10 @@ class _GetStateObjectRouteState extends State<GetStateObjectRoute> {
             Builder(builder: (context) {
               return ElevatedButton(
                   onPressed: () {
-                    ScaffoldState _state =
+                    ScaffoldState state =
                         context.findAncestorStateOfType<ScaffoldState>()!;
                     //   打开抽屉
-                    _state.openDrawer();
+                    state.openDrawer();
                   },
                   child: const Text('打开抽屉菜单'));
             }),
@@ -524,21 +526,21 @@ class _GetStateObjectRouteState extends State<GetStateObjectRoute> {
               return ElevatedButton(
                 onPressed: () {
                   // 直接通过of静态方法来获取ScaffoldState
-                  ScaffoldState _state = Scaffold.of(context);
+                  ScaffoldState state = Scaffold.of(context);
                   // 打开抽屉菜单
-                  _state.openDrawer();
+                  state.openDrawer();
                 },
-                child: Text('打开抽屉菜单2'),
+                child: const Text('打开抽屉菜单2'),
               );
             }),
             Builder(builder: (context) {
               return ElevatedButton(
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("我是SnackBar")),
+                    const SnackBar(content: Text("我是SnackBar")),
                   );
                 },
-                child: Text('显示SnackBar'),
+                child: const Text('显示SnackBar'),
               );
             }),
             Container(
@@ -552,9 +554,9 @@ class _GetStateObjectRouteState extends State<GetStateObjectRoute> {
             CupertinoButton(
                 child: const Text('APPLE BUTTON'),
                 onPressed: () => print('handlePress')),
-            TapboxA(),
+            const TapboxA(),
             // ParentWidget(),
-            ParentWidgetC()
+            const ParentWidgetC()
           ],
         ),
       ),
@@ -565,7 +567,7 @@ class _GetStateObjectRouteState extends State<GetStateObjectRoute> {
 
 // tapboxA管理自身状态
 class TapboxA extends StatefulWidget {
-  TapboxA({Key? key}) : super(key: key);
+  const TapboxA({super.key});
   @override
   _TapboxAState createState() => _TapboxAState();
 }
@@ -578,6 +580,7 @@ class _TapboxAState extends State<TapboxA> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _handleTap,
@@ -596,6 +599,8 @@ class _TapboxAState extends State<TapboxA> {
 
 //ParentWidget为TapbooxB管理状态
 class ParentWidget extends StatefulWidget {
+  const ParentWidget({super.key});
+
   @override
   _ParentWidgetState createState() => _ParentWidgetState();
 }
@@ -618,13 +623,14 @@ class _ParentWidgetState extends State<ParentWidget> {
 
 // tapboxB
 class TapboxB extends StatelessWidget {
-  TapboxB({Key? key, this.active = false, required this.onChanged});
+  const TapboxB({super.key, this.active = false, required this.onChanged});
   final bool active;
   final ValueChanged<bool> onChanged;
   void _handleTap() {
     onChanged(!active);
   }
 
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: _handleTap,
@@ -644,6 +650,8 @@ class TapboxB extends StatelessWidget {
 
 // 混合状态管理
 class ParentWidgetC extends StatefulWidget {
+  const ParentWidgetC({super.key});
+
   @override
   _ParentWidgetCState createState() => _ParentWidgetCState();
 }
@@ -669,8 +677,7 @@ class _ParentWidgetCState extends State<ParentWidgetC> {
 
 //----------------------------- TapboxC ------------------------------
 class TapboxC extends StatefulWidget {
-  TapboxC({Key? key, this.active = false, required this.onChanged})
-      : super(key: key);
+  const TapboxC({super.key, this.active = false, required this.onChanged});
   final bool active;
   final ValueChanged<bool> onChanged;
   @override
@@ -729,6 +736,8 @@ class _TapboxCState extends State<TapboxC> {
 }
 
 class RandomWordsWidget extends StatelessWidget {
+  const RandomWordsWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     final wordPair = WordPair.random();

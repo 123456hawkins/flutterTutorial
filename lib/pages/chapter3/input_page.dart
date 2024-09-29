@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class InputPage extends StatelessWidget {
@@ -10,7 +9,7 @@ class InputPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('输入框和表单'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(children: [InputForm(), FormTest()]),
       ),
     );
@@ -18,7 +17,7 @@ class InputPage extends StatelessWidget {
 }
 
 class InputForm extends StatefulWidget {
-  InputForm({super.key});
+  const InputForm({super.key});
 
   @override
   _InputFormState createState() => _InputFormState();
@@ -142,6 +141,8 @@ class _InputFormState extends State<InputForm> {
 }
 
 class FormTest extends StatefulWidget {
+  const FormTest({super.key});
+
   @override
   _FormTestState createState() => _FormTestState();
 }

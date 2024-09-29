@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class layoutB extends StatelessWidget {
@@ -9,7 +8,7 @@ class layoutB extends StatelessWidget {
       appBar: AppBar(
         title: const Text('LayoutBuilder,AfterLayout'),
       ),
-      body: Column(
+      body: const Column(
         children: [LayoutBuilderRoute()],
       ),
     );
@@ -17,23 +16,23 @@ class layoutB extends StatelessWidget {
 }
 
 class LayoutBuilderRoute extends StatelessWidget {
-  const LayoutBuilderRoute({Key? key}) : super(key: key);
+  const LayoutBuilderRoute({super.key});
   @override
   Widget build(BuildContext context) {
-    var _children = List.filled(8, Text('A'));
+    var children = List.filled(8, const Text('A'));
     return Column(
       children: [
-        SizedBox(width: 400, child: ResponsiveColumn(children: _children)),
-        ResponsiveColumn(children: _children),
-        LayoutLogPrint(child: Text("xx")),
-        AfterLayoutRoute()
+        SizedBox(width: 400, child: ResponsiveColumn(children: children)),
+        ResponsiveColumn(children: children),
+        const LayoutLogPrint(child: Text("xx")),
+        const AfterLayoutRoute()
       ],
     );
   }
 }
 
 class ResponsiveColumn extends StatelessWidget {
-  const ResponsiveColumn({Key? key, required this.children}) : super(key: key);
+  const ResponsiveColumn({super.key, required this.children});
 
   final List<Widget> children;
 
@@ -44,21 +43,21 @@ class ResponsiveColumn extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 200) {
           // 最大宽度小于200，显示单列
-          return Column(children: children, mainAxisSize: MainAxisSize.min);
+          return Column(mainAxisSize: MainAxisSize.min, children: children);
         } else {
           // 大于200，显示双列
-          var _children = <Widget>[];
+          var children = <Widget>[];
           for (var i = 0; i < children.length; i += 2) {
             if (i + 1 < children.length) {
-              _children.add(Row(
-                children: [children[i], children[i + 1]],
+              children.add(Row(
                 mainAxisSize: MainAxisSize.min,
+                children: [children[i], children[i + 1]],
               ));
             } else {
-              _children.add(children[i]);
+              children.add(children[i]);
             }
           }
-          return Column(children: _children, mainAxisSize: MainAxisSize.min);
+          return Column(mainAxisSize: MainAxisSize.min, children: children);
         }
       },
     );
@@ -66,8 +65,7 @@ class ResponsiveColumn extends StatelessWidget {
 }
 
 class LayoutLogPrint<T> extends StatelessWidget {
-  const LayoutLogPrint({Key? key, this.tag, required this.child})
-      : super(key: key);
+  const LayoutLogPrint({super.key, this.tag, required this.child});
   final Widget child;
   final T? tag; //指定日志tag
   @override
@@ -83,14 +81,14 @@ class LayoutLogPrint<T> extends StatelessWidget {
 }
 
 class AfterLayoutRoute extends StatefulWidget {
-  const AfterLayoutRoute({Key? key}) : super(key: key);
+  const AfterLayoutRoute({super.key});
   @override
   _AfterLayoutRouteState createState() => _AfterLayoutRouteState();
 }
 
 class _AfterLayoutRouteState extends State<AfterLayoutRoute> {
-  String _text = 'flutter 实战';
-  Size _size = Size.zero;
+  final String _text = 'flutter 实战';
+  final Size _size = Size.zero;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -100,7 +98,7 @@ class _AfterLayoutRouteState extends State<AfterLayoutRoute> {
           padding: const EdgeInsets.all(8),
           child: Builder(builder: (context) {
             return GestureDetector(
-                child: Text('Text1:点我获取大小',
+                child: const Text('Text1:点我获取大小',
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.blue)),
                 onTap: () => print('Text1:${context.size}'));

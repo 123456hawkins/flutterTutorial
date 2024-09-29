@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/components/KeepAliveWrapper.dart';
 
@@ -10,11 +9,13 @@ class PageViewRoute extends StatelessWidget {
         appBar: AppBar(
           title: const Text('pageView与页面缓存'),
         ),
-        body: PageViewComponent());
+        body: const PageViewComponent());
   }
 }
 
 class PageViewComponent extends StatefulWidget {
+  const PageViewComponent({super.key});
+
   @override
   _PageViewComponent createState() => _PageViewComponent();
 }
@@ -36,7 +37,7 @@ class _PageViewComponent extends State<PageViewComponent> {
 }
 
 class Page extends StatefulWidget {
-  const Page({Key? key, required this.text}) : super(key: key);
+  const Page({super.key, required this.text});
   final String text;
   @override
   _PageState createState() => _PageState();
@@ -49,7 +50,7 @@ class _PageState extends State<Page> {
     print("build ${widget.text}");
     return Center(
       child: Text(
-        '${widget.text}',
+        widget.text,
         textScaleFactor: 5,
       ),
     );

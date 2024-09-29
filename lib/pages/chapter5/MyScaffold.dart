@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyScaffold extends StatefulWidget {
+  const MyScaffold({super.key});
+
   @override
   _ScaffoldRouteState createState() => _ScaffoldRouteState();
 }
@@ -13,20 +15,20 @@ class _ScaffoldRouteState extends State<MyScaffold> {
     return Scaffold(
       appBar: AppBar(
         //导航栏
-        title: Text("App Name"),
+        title: const Text("App Name"),
         actions: <Widget>[
           //导航栏右侧菜单
-          IconButton(icon: Icon(Icons.share), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.share), onPressed: () {}),
         ],
         leading: Builder(builder: (context) {
           return IconButton(
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
-              icon: Icon(Icons.dashboard, color: Colors.black87));
+              icon: const Icon(Icons.dashboard, color: Colors.black87));
         }),
       ),
-      drawer: MyDrawer(), //抽屉
+      drawer: const MyDrawer(), //抽屉
       // bottomNavigationBar: BottomNavigationBar(
       //   // 底部导航
       //   items: <BottomNavigationBarItem>[
@@ -44,21 +46,22 @@ class _ScaffoldRouteState extends State<MyScaffold> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         color: Colors.grey,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         child: Row(
-          children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.home)),
-            SizedBox(), //中间位置流出
-            IconButton(onPressed: () {}, icon: Icon(Icons.business))
-          ],
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.home)),
+            const SizedBox(), //中间位置流出
+            IconButton(onPressed: () {}, icon: const Icon(Icons.business))
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
           //悬浮按钮
-          child: Icon(Icons.home),
-          shape: CircleBorder(),
-          onPressed: _onAdd),
+          shape: const CircleBorder(),
+          onPressed: _onAdd,
+          //悬浮按钮
+          child: const Icon(Icons.home)),
     );
   }
 
@@ -89,20 +92,20 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
+            const Text(
               "Hawkins",
               style: TextStyle(fontWeight: FontWeight.bold),
             )
           ],
         ),
       ),
-      ListTile(
-        leading: const Icon(Icons.add),
-        title: const Text('Add Account'),
+      const ListTile(
+        leading: Icon(Icons.add),
+        title: Text('Add Account'),
       ),
-      ListTile(
-        leading: const Icon(Icons.settings),
-        title: const Text('Manage Account'),
+      const ListTile(
+        leading: Icon(Icons.settings),
+        title: Text('Manage Account'),
       )
     ]));
   }

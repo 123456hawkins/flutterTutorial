@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class linearLayout extends StatelessWidget {
@@ -23,7 +22,7 @@ class linearLayout extends StatelessWidget {
                 //     ),
                 //   ),
                 // ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [Text("hawkins"), Text('stephen')],
@@ -33,8 +32,8 @@ class linearLayout extends StatelessWidget {
                   children: [
                     Expanded(child: Container(height: 30, color: Colors.red)),
                     Expanded(
-                      child: Container(height: 30, color: Colors.yellow),
                       flex: 3,
+                      child: Container(height: 30, color: Colors.yellow),
                     )
                   ],
                 ),
@@ -46,10 +45,10 @@ class linearLayout extends StatelessWidget {
                       direction: Axis.vertical,
                       children: [
                         Expanded(
-                          child: Container(height: 30, color: Colors.red),
                           flex: 2,
+                          child: Container(height: 30, color: Colors.red),
                         ),
-                        Spacer(flex: 1),
+                        const Spacer(flex: 1),
                         Expanded(
                           flex: 1,
                           child: Container(height: 30.0, color: Colors.pink),

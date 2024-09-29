@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -14,34 +13,34 @@ class paddingAndDecorated extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
+              const Padding(
                   padding: EdgeInsets.only(left: 8),
-                  child: const Text("hello")),
-              Padding(
+                  child: Text("hello")),
+              const Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
-                child: const Text("hello2"),
+                child: Text("hello2"),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(20, 30, 40, 20),
-                child: const Text('hello3'),
+                child: Text('hello3'),
               ),
               DecoratedBox(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
                         colors: [Colors.red, Colors.blue.shade700]),
                     borderRadius: BorderRadius.circular(3.0),
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                           color: Colors.black54,
                           offset: Offset(2, 2),
                           blurRadius: 4)
                     ]),
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 80, vertical: 18),
                   child: Text('点我'),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 color: Colors.black,
                 child: Transform(
@@ -53,47 +52,47 @@ class paddingAndDecorated extends StatelessWidget {
                       child: const Text('Stephen Hawkins')),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               DecoratedBox(
-                decoration: BoxDecoration(color: Colors.red),
+                decoration: const BoxDecoration(color: Colors.red),
                 //默认原点为左上角，左移20像素，向上平移5像素
                 child: Transform.translate(
-                  offset: Offset(-20, -5),
+                  offset: const Offset(-20, -5),
                   child: const Text("hello"),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               DecoratedBox(
-                decoration: BoxDecoration(color: Colors.red),
+                decoration: const BoxDecoration(color: Colors.red),
                 child: Transform.rotate(
                   angle: math.pi / 2,
-                  child: Text(' world'),
+                  child: const Text(' world'),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               DecoratedBox(
-                  decoration: BoxDecoration(color: Colors.red),
+                  decoration: const BoxDecoration(color: Colors.red),
                   child: Transform.scale(
                     scale: 2,
-                    child: Text("fuck"),
+                    child: const Text("fuck"),
                   )),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   DecoratedBox(
-                    decoration: BoxDecoration(color: Colors.red),
+                    decoration: const BoxDecoration(color: Colors.red),
                     child:
-                        Transform.scale(scale: 1.5, child: Text('hello world')),
+                        Transform.scale(scale: 1.5, child: const Text('hello world')),
                   ),
-                  Text(
+                  const Text(
                     '你好',
                     style: TextStyle(color: Colors.green),
                   )
                 ],
               ),
-              SizedBox(height: 20),
-              Row(
+              const SizedBox(height: 20),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   DecoratedBox(
@@ -111,15 +110,11 @@ class paddingAndDecorated extends StatelessWidget {
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(top: 20.0, left: 50.0),
-                constraints: BoxConstraints.tightFor(width: 200, height: 150),
+                margin: const EdgeInsets.only(top: 20.0, left: 50.0),
+                constraints: const BoxConstraints.tightFor(width: 200, height: 150),
                 transform: Matrix4.rotationZ(.5),
                 alignment: Alignment.center,
-                child: Text(
-                  'nihao',
-                  style: TextStyle(color: Colors.white),
-                ),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     gradient: RadialGradient(
                         colors: [Colors.green, Colors.orange],
                         center: Alignment.topLeft,
@@ -130,9 +125,13 @@ class paddingAndDecorated extends StatelessWidget {
                           offset: Offset(10, 10),
                           blurRadius: 4)
                     ]),
+                child: const Text(
+                  'nihao',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-              SizedBox(height: 120),
-              ClipTestRoute()
+              const SizedBox(height: 120),
+              const ClipTestRoute()
             ],
           ),
         ));
@@ -140,6 +139,8 @@ class paddingAndDecorated extends StatelessWidget {
 }
 
 class ClipTestRoute extends StatelessWidget {
+  const ClipTestRoute({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -151,7 +152,7 @@ class ClipTestRoute extends StatelessWidget {
           ClipOval(
             child: avatar, //裁剪圆形
           ),
-          ClipRect(child: avatar, clipBehavior: Clip.antiAlias),
+          ClipRect(clipBehavior: Clip.antiAlias, child: avatar),
           Row(
             // 会溢出
             mainAxisAlignment: MainAxisAlignment.center,
@@ -161,7 +162,7 @@ class ClipTestRoute extends StatelessWidget {
                 widthFactor: .5,
                 child: avatar,
               ),
-              Text('你好世界')
+              const Text('你好世界')
             ],
           ),
           Row(
@@ -174,11 +175,11 @@ class ClipTestRoute extends StatelessWidget {
                   child: avatar,
                 ),
               ),
-              Text('你好世界123')
+              const Text('你好世界123')
             ],
           ),
           DecoratedBox(
-            decoration: BoxDecoration(color: Colors.red),
+            decoration: const BoxDecoration(color: Colors.red),
             child: ClipRect(
               clipper: MyClipper(),
               child: avatar,
@@ -191,9 +192,9 @@ class ClipTestRoute extends StatelessWidget {
             ),
           ),
           wContainer(BoxFit.none),
-          Text('wendux'),
+          const Text('wendux'),
           wContainer(BoxFit.contain),
-          Text("flutterchina"),
+          const Text("flutterchina"),
           Column(
               children: [
             wRow(' 9000000000000000 '),
@@ -202,12 +203,12 @@ class ClipTestRoute extends StatelessWidget {
             FittedBox(child: wRow(' 800 ')),
           ]
                   .map((e) => Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
+                        padding: const EdgeInsets.symmetric(vertical: 20),
                         child: e,
                       ))
                   .toList()),
 
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           SingleLineFittedBox(child: wRow(' 900000000000000123112312300 '))
@@ -219,7 +220,7 @@ class ClipTestRoute extends StatelessWidget {
 
 class MyClipper extends CustomClipper<Rect> {
   @override
-  Rect getClip(Size size) => Rect.fromLTWH(10, 15, 40, 30);
+  Rect getClip(Size size) => const Rect.fromLTWH(10, 15, 40, 30);
   @override
   bool shouldReclip(CustomClipper<Rect> oldClipper) => false;
 }
@@ -252,7 +253,7 @@ Widget wRow(String text) {
 }
 
 class SingleLineFittedBox extends StatelessWidget {
-  const SingleLineFittedBox({Key? key, this.child}) : super(key: key);
+  const SingleLineFittedBox({super.key, this.child});
   final Widget? child;
   @override
   Widget build(BuildContext context) {

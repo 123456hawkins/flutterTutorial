@@ -1,5 +1,4 @@
 import 'package:english_words/english_words.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project/components/KeepAliveWrapper.dart';
 
@@ -11,7 +10,7 @@ class ListViewTestRoute extends StatelessWidget {
         appBar: AppBar(title: const Text('ListView')),
         body:
             // TestListHead()
-            KeepAliveTest()
+            const KeepAliveTest()
         // InfiniteListView()
         // ListView3()
 
@@ -44,8 +43,8 @@ class ListView3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget divider1 = Divider(color: Colors.blue);
-    Widget divider2 = Divider(color: Colors.green);
+    Widget divider1 = const Divider(color: Colors.blue);
+    Widget divider2 = const Divider(color: Colors.green);
     return ListView.separated(
         itemBuilder: (BuildContext context, int index) {
           return ListTile(title: Text("$index"));
@@ -59,15 +58,17 @@ class ListView3 extends StatelessWidget {
 
 // 懒加载加载列表
 class InfiniteListView extends StatefulWidget {
+  const InfiniteListView({super.key});
+
   @override
   _InfiniteListViewState createState() => _InfiniteListViewState();
 }
 
 class _InfiniteListViewState extends State<InfiniteListView> {
   static const LoadingTag = '###Loading###';
-  var _words = <String>[LoadingTag];
+  final _words = <String>[LoadingTag];
   void _retrieveData() {
-    Future.delayed(Duration(seconds: 2)).then((e) {
+    Future.delayed(const Duration(seconds: 2)).then((e) {
       setState(() {
         _words.insertAll(_words.length - 1,
             generateWordPairs().take(20).map((e) => e.asPascalCase).toList());
@@ -85,8 +86,8 @@ class _InfiniteListViewState extends State<InfiniteListView> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          title: const Text('title'),
+        const ListTile(
+          title: Text('title'),
         ),
         Expanded(
             child: ListView.separated(
@@ -99,7 +100,7 @@ class _InfiniteListViewState extends State<InfiniteListView> {
                       return Container(
                         padding: const EdgeInsets.all(16),
                         alignment: Alignment.center,
-                        child: SizedBox(
+                        child: const SizedBox(
                           width: 24,
                           height: 24,
                           child: CircularProgressIndicator(
@@ -113,7 +114,7 @@ class _InfiniteListViewState extends State<InfiniteListView> {
                         alignment: Alignment.center,
                         padding: const EdgeInsets.all(16),
                         child:
-                            Text('没有更多了', style: TextStyle(color: Colors.grey)),
+                            const Text('没有更多了', style: TextStyle(color: Colors.grey)),
                       );
                     }
                   }
@@ -121,7 +122,7 @@ class _InfiniteListViewState extends State<InfiniteListView> {
                     title: Text(_words[index]),
                   );
                 },
-                separatorBuilder: (context, index) => Divider(
+                separatorBuilder: (context, index) => const Divider(
                       height: .0,
                     ),
                 itemCount: _words.length))
@@ -132,6 +133,8 @@ class _InfiniteListViewState extends State<InfiniteListView> {
 
 // 表头demo
 class TestListHead extends StatefulWidget {
+  const TestListHead({super.key});
+
   @override
   _TestListHead createState() => _TestListHead();
 }
@@ -141,7 +144,7 @@ class _TestListHead extends State<TestListHead> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(title: Text('商品列表')),
+        const ListTile(title: Text('商品列表')),
         Expanded(
             child: ListView.builder(
                 itemCount: 100,
@@ -170,7 +173,7 @@ class KeepAliveTest extends StatelessWidget {
 }
 
 class ListItem extends StatefulWidget {
-  const ListItem({Key? key, required this.index}) : super(key: key);
+  const ListItem({super.key, required this.index});
   final int index;
   @override
   _ListItemState createState() => _ListItemState();

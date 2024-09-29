@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SingleChildScrollViewTestRoute extends StatelessWidget {
@@ -10,7 +9,7 @@ class SingleChildScrollViewTestRoute extends StatelessWidget {
         appBar: AppBar(title: const Text('SingleChildScrollView')),
         body: Scrollbar(
             child: SingleChildScrollView(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Center(
                   child: Column(
                     children: str

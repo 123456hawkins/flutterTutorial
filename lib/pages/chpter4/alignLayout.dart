@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class alignLayout extends StatelessWidget {
@@ -6,13 +5,13 @@ class alignLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('对齐与相对定位（Align）')),
+      appBar: AppBar(title: const Text('对齐与相对定位（Align）')),
       body: Column(children: [
         Container(
           height: 120,
           width: 120,
           color: Colors.blue.shade50,
-          child: Align(
+          child: const Align(
             alignment: Alignment.topRight,
             child: FlutterLogo(
               size: 60,
@@ -21,7 +20,7 @@ class alignLayout extends StatelessWidget {
         ),
         Container(
             color: Colors.green.shade50,
-            child: Align(
+            child: const Align(
               heightFactor: 2,
               widthFactor: 2,
               alignment: Alignment.center,
@@ -49,13 +48,13 @@ class alignLayout extends StatelessWidget {
                 size: 60,
               ),
             )),
-        DecoratedBox(
+        const DecoratedBox(
           decoration: BoxDecoration(color: Colors.red),
           child: Center(
             child: Text('xxx'),
           ),
         ),
-        DecoratedBox(
+        const DecoratedBox(
           decoration: BoxDecoration(color: Colors.blue),
           child: Center(
             widthFactor: 1,

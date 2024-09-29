@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class image_page extends StatelessWidget {
@@ -14,7 +13,7 @@ class image_page extends StatelessWidget {
         child: Column(
           children: [
             // 本地引入
-            Image(image: AssetImage('assets/images/google.png')),
+            const Image(image: AssetImage('assets/images/google.png')),
             // 在线引入
             Image.network(
               'https://pics2.baidu.com/feed/7acb0a46f21fbe09945a9ace2b0b963d8644ad5a.jpeg@f_auto?token=594a9aabed930d8f979a4e404a879201',

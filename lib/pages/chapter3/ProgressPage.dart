@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProgressPage extends StatelessWidget {
@@ -15,39 +14,39 @@ class ProgressPage extends StatelessWidget {
             // 模糊进度条，执行动画
             LinearProgressIndicator(
               backgroundColor: Colors.grey[200],
-              valueColor: AlwaysStoppedAnimation(Colors.blue),
+              valueColor: const AlwaysStoppedAnimation(Colors.blue),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             LinearProgressIndicator(
               backgroundColor: Colors.grey[200],
-              valueColor: AlwaysStoppedAnimation(Colors.green),
+              valueColor: const AlwaysStoppedAnimation(Colors.green),
               value: .6,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             CircularProgressIndicator(
               backgroundColor: Colors.grey[200],
-              valueColor: AlwaysStoppedAnimation(Colors.blue),
+              valueColor: const AlwaysStoppedAnimation(Colors.blue),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             CircularProgressIndicator(
               backgroundColor: Colors.grey[200],
-              valueColor: AlwaysStoppedAnimation(Colors.blue),
+              valueColor: const AlwaysStoppedAnimation(Colors.blue),
               value: .7,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // 自定义大小
             SizedBox(
               height: 100,
               width: 100,
               child: CircularProgressIndicator(
                 backgroundColor: Colors.grey[200],
-                valueColor: AlwaysStoppedAnimation(Colors.blue),
+                valueColor: const AlwaysStoppedAnimation(Colors.blue),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            ProgressRoute()
+            const ProgressRoute()
           ],
         ),
       ),
@@ -56,6 +55,8 @@ class ProgressPage extends StatelessWidget {
 }
 
 class ProgressRoute extends StatefulWidget {
+  const ProgressRoute({super.key});
+
   @override
   _ProgressRouteState createState() => _ProgressRouteState();
 }
@@ -84,7 +85,7 @@ class _ProgressRouteState extends State<ProgressRoute>
       child: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: LinearProgressIndicator(
               backgroundColor: Colors.grey[200],
               valueColor: ColorTween(begin: Colors.grey, end: Colors.red)

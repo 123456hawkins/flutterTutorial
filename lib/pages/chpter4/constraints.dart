@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget redBox =
@@ -12,7 +11,7 @@ class constraints extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('布局原理与约束'),
-        actions: [
+        actions: const [
           SizedBox(
               width: 20,
               height: 20,
@@ -28,21 +27,21 @@ class constraints extends StatelessWidget {
             // 约束盒子
             ConstrainedBox(
               constraints:
-                  BoxConstraints(minWidth: double.infinity, minHeight: 66.0),
-              child: Container(
+                  const BoxConstraints(minWidth: double.infinity, minHeight: 66.0),
+              child: SizedBox(
                 height: 5,
                 child: redBox,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             SizedBox(width: 66, height: 66, child: redBox),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ConstrainedBox(
-                constraints: BoxConstraints(minWidth: 60.0, minHeight: 100),
+                constraints: const BoxConstraints(minWidth: 60.0, minHeight: 100),
                 child: UnconstrainedBox(
                   child: ConstrainedBox(
                     constraints:
-                        BoxConstraints(minWidth: 20.0, minHeight: 20.0),
+                        const BoxConstraints(minWidth: 20.0, minHeight: 20.0),
                     child: redBox,
                   ),
                 )),
