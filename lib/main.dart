@@ -13,6 +13,7 @@ import 'package:flutter_project/pages/chapter3/switch_page.dart';
 import 'package:flutter_project/pages/chapter5/c5main.dart';
 import 'package:flutter_project/pages/chapter5/MyScaffold.dart';
 import 'package:flutter_project/pages/chapter5/paddingAndDecorated.dart';
+import 'package:flutter_project/pages/chapter6/AnimatedListRoute.dart';
 import 'package:flutter_project/pages/chapter6/C6main.dart';
 import 'package:flutter_project/pages/chapter6/ListViewTestRoute.dart';
 import 'package:flutter_project/pages/chapter6/ScrollerMonitor.dart';
@@ -163,6 +164,11 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   path: 'ScrollerMonitor',
                   builder: (BuildContext context, GoRouterState state) {
                     return ScrollerMonitor();
+                  }),
+              GoRoute(
+                  path: 'AnimatedList',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return AnimatedListRoute();
                   })
             ])
       ]),
