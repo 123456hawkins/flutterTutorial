@@ -20,6 +20,7 @@ import 'package:flutter_project/pages/chapter6/ListViewTestRoute.dart';
 import 'package:flutter_project/pages/chapter6/PageVeiwRoute.dart';
 import 'package:flutter_project/pages/chapter6/ScrollerMonitor.dart';
 import 'package:flutter_project/pages/chapter6/SingleChildScrollViewTestRoute.dart';
+import 'package:flutter_project/pages/chapter6/TabBarViewRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
@@ -181,6 +182,11 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   path: 'PageView',
                   builder: (BuildContext context, GoRouterState state) {
                     return const PageViewRoute();
+                  }),
+              GoRoute(
+                  path: 'TabBarView',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return TabBarViewRoute();
                   })
             ])
       ]),
