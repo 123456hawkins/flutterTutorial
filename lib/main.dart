@@ -15,6 +15,7 @@ import 'package:flutter_project/pages/chapter5/MyScaffold.dart';
 import 'package:flutter_project/pages/chapter5/paddingAndDecorated.dart';
 import 'package:flutter_project/pages/chapter6/AnimatedListRoute.dart';
 import 'package:flutter_project/pages/chapter6/C6main.dart';
+import 'package:flutter_project/pages/chapter6/CustomScrollViewRoute.dart';
 import 'package:flutter_project/pages/chapter6/GridViewRoute.dart';
 import 'package:flutter_project/pages/chapter6/ListViewTestRoute.dart';
 import 'package:flutter_project/pages/chapter6/PageVeiwRoute.dart';
@@ -187,6 +188,11 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   path: 'TabBarView',
                   builder: (BuildContext context, GoRouterState state) {
                     return TabBarViewRoute();
+                  }),
+              GoRoute(
+                  path: 'CustomScrollView',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return CustomScrollViewRoute();
                   })
             ])
       ]),

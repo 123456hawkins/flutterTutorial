@@ -62,6 +62,7 @@ flutter:
   assets:
     - assets/images/google.png
     - assets/images/lahe.jpg
+    - assets/images/sea.jpg
   fonts:
     - family: fontFamily1
       fonts:
