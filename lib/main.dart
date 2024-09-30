@@ -19,9 +19,12 @@ import 'package:flutter_project/pages/chapter6/CustomScrollViewRoute.dart';
 import 'package:flutter_project/pages/chapter6/CustomSliverRoute.dart';
 import 'package:flutter_project/pages/chapter6/GridViewRoute.dart';
 import 'package:flutter_project/pages/chapter6/ListViewTestRoute.dart';
+import 'package:flutter_project/pages/chapter6/NestedScrollViewRoute.dart';
 import 'package:flutter_project/pages/chapter6/PageVeiwRoute.dart';
 import 'package:flutter_project/pages/chapter6/ScrollerMonitor.dart';
+import 'package:flutter_project/pages/chapter6/ShoppingRoute.dart';
 import 'package:flutter_project/pages/chapter6/SingleChildScrollViewTestRoute.dart';
+import 'package:flutter_project/pages/chapter6/SnapAppBar.dart';
 import 'package:flutter_project/pages/chapter6/TabBarViewRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
@@ -199,6 +202,21 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   path: 'CustomSliverView',
                   builder: (BuildContext context, GoRouterState state) {
                     return CustomSliverRoute();
+                  }),
+              GoRoute(
+                  path: 'NestedScrollView',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return NestedScrollViewRoute();
+                  }),
+              GoRoute(
+                  path: 'SnapAppBar',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return SnapAppBar();
+                  }),
+              GoRoute(
+                  path: 'ShoppingRoute',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return ShoppingRoute();
                   })
             ])
       ]),

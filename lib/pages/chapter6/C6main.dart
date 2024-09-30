@@ -56,6 +56,21 @@ class C6main extends StatelessWidget {
                     context.go('/chapter_six/CustomSliverView');
                   },
                   child: const Text('CustomSliverView')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.go('/chapter_six/NestedScrollView');
+                  },
+                  child: const Text('NestedScrollView')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.go('/chapter_six/SnapAppBar');
+                  },
+                  child: const Text('SnapAppBar')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.go('/chapter_six/ShoppingRoute');
+                  },
+                  child: const Text('ShoppingRoute')),
             ],
           ),
         ));
