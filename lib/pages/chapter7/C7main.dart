@@ -28,6 +28,16 @@ class C7main extends StatelessWidget {
                   context.go('/chapter_seven/Provider');
                 },
                 child: const Text('Provider')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_seven/ColorAndTheme');
+                },
+                child: const Text('Color')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_seven/Theme');
+                },
+                child: const Text('Theme')),
           ],
         ),
       ),

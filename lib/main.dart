@@ -27,9 +27,11 @@ import 'package:flutter_project/pages/chapter6/SingleChildScrollViewTestRoute.da
 import 'package:flutter_project/pages/chapter6/SnapAppBar.dart';
 import 'package:flutter_project/pages/chapter6/TabBarViewRoute.dart';
 import 'package:flutter_project/pages/chapter7/C7main.dart';
+import 'package:flutter_project/pages/chapter7/ColorTestRoute.dart';
 import 'package:flutter_project/pages/chapter7/InheritedWidgetTestRoute.dart';
 import 'package:flutter_project/pages/chapter7/PopScopeRoute.dart';
 import 'package:flutter_project/pages/chapter7/ProviderRoute.dart';
+import 'package:flutter_project/pages/chapter7/ThemeTestRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
@@ -245,6 +247,18 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                 path: 'Provider',
                 builder: (BuildContext context, GoRouterState state) {
                   return ProviderRoute();
+                },
+              ),
+              GoRoute(
+                path: 'ColorAndTheme',
+                builder: (BuildContext context, GoRouterState state) {
+                  return ColorTestRoute();
+                },
+              ),
+              GoRoute(
+                path: 'Theme',
+                builder: (BuildContext context, GoRouterState state) {
+                  return ThemeTestRoute();
                 },
               )
             ]),
