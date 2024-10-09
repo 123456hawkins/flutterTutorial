@@ -20,7 +20,7 @@ class PopScopeRouteState extends State<PopScopeRoute> {
                 const Duration(milliseconds: 1000)) {
           _lastPressedAt = DateTime.now();
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text('再按一次退出'),
+            content: Text('1s内再按两次退出'),
           ));
         } else {
           setState(() {

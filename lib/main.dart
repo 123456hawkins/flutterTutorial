@@ -27,6 +27,7 @@ import 'package:flutter_project/pages/chapter6/SingleChildScrollViewTestRoute.da
 import 'package:flutter_project/pages/chapter6/SnapAppBar.dart';
 import 'package:flutter_project/pages/chapter6/TabBarViewRoute.dart';
 import 'package:flutter_project/pages/chapter7/C7main.dart';
+import 'package:flutter_project/pages/chapter7/InheritedWidgetTestRoute.dart';
 import 'package:flutter_project/pages/chapter7/PopScopeRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
@@ -232,8 +233,14 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                 builder: (BuildContext context, GoRouterState state) {
                   return PopScopeRoute();
                 },
+              ),
+              GoRoute(
+                path: 'InheritedWidget',
+                builder: (BuildContext context, GoRouterState state) {
+                  return InheritedWidgetTestRoute();
+                },
               )
-            ])
+            ]),
       ]),
 ]);
 
@@ -509,14 +516,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   tooltip: 'Decrement',
                   child: const Icon(Icons.delete),
                 )),
-            Positioned(
-                bottom: 80.0,
-                right: 150.0,
-                child: FloatingActionButton(
-                  onPressed: _decrementCounter,
-                  tooltip: 'Decrement',
-                  child: const Icon(Icons.delete),
-                ))
+            // Positioned(
+            //     bottom: 80.0,
+            //     right: 150.0,
+            //     child: FloatingActionButton(
+            //       onPressed: _decrementCounter,
+            //       tooltip: 'Decrement',
+            //       child: const Icon(Icons.delete),
+            //     ))
           ],
         ));
   }

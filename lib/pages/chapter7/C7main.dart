@@ -18,6 +18,11 @@ class C7main extends StatelessWidget {
                   context.go('/chapter_seven/PopScope');
                 },
                 child: const Text('PopScope')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_seven/InheritedWidget');
+                },
+                child: const Text('InheritedWidget')),
           ],
         ),
       ),
