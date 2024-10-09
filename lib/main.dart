@@ -32,6 +32,7 @@ import 'package:flutter_project/pages/chapter7/InheritedWidgetTestRoute.dart';
 import 'package:flutter_project/pages/chapter7/PopScopeRoute.dart';
 import 'package:flutter_project/pages/chapter7/ProviderRoute.dart';
 import 'package:flutter_project/pages/chapter7/ThemeTestRoute.dart';
+import 'package:flutter_project/pages/chapter7/ValueListenableRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
@@ -259,6 +260,12 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                 path: 'Theme',
                 builder: (BuildContext context, GoRouterState state) {
                   return ThemeTestRoute();
+                },
+              ),
+              GoRoute(
+                path: 'ValueListenable',
+                builder: (BuildContext context, GoRouterState state) {
+                  return ValueListenableRoute();
                 },
               )
             ]),
