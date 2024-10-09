@@ -26,6 +26,8 @@ import 'package:flutter_project/pages/chapter6/ShoppingRoute.dart';
 import 'package:flutter_project/pages/chapter6/SingleChildScrollViewTestRoute.dart';
 import 'package:flutter_project/pages/chapter6/SnapAppBar.dart';
 import 'package:flutter_project/pages/chapter6/TabBarViewRoute.dart';
+import 'package:flutter_project/pages/chapter7/C7main.dart';
+import 'package:flutter_project/pages/chapter7/PopScopeRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
@@ -218,6 +220,19 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   builder: (BuildContext context, GoRouterState state) {
                     return ShoppingRoute();
                   })
+            ]),
+        GoRoute(
+            path: 'chapter_seven',
+            builder: (BuildContext context, GoRouterState state) {
+              return C7main();
+            },
+            routes: [
+              GoRoute(
+                path: 'PopScope',
+                builder: (BuildContext context, GoRouterState state) {
+                  return PopScopeRoute();
+                },
+              )
             ])
       ]),
 ]);
@@ -468,6 +483,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     context.go('/chapter_six');
                   },
                   child: const Text('跳转第六章')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.go('/chapter_seven');
+                  },
+                  child: const Text('跳转第七章')),
             ],
           ),
         ),
