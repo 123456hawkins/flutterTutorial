@@ -28,6 +28,7 @@ import 'package:flutter_project/pages/chapter6/SnapAppBar.dart';
 import 'package:flutter_project/pages/chapter6/TabBarViewRoute.dart';
 import 'package:flutter_project/pages/chapter7/C7main.dart';
 import 'package:flutter_project/pages/chapter7/ColorTestRoute.dart';
+import 'package:flutter_project/pages/chapter7/DialogTestRoue.dart';
 import 'package:flutter_project/pages/chapter7/FutureBuilderTestRoute.dart';
 import 'package:flutter_project/pages/chapter7/InheritedWidgetTestRoute.dart';
 import 'package:flutter_project/pages/chapter7/PopScopeRoute.dart';
@@ -273,6 +274,12 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                 path: 'FutureBuilder',
                 builder: (BuildContext context, GoRouterState state) {
                   return FutureBuilderTestRoute();
+                },
+              ),
+              GoRoute(
+                path: 'dialog',
+                builder: (BuildContext context, GoRouterState state) {
+                  return DialogTestRoue();
                 },
               )
             ]),

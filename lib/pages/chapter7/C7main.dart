@@ -48,6 +48,11 @@ class C7main extends StatelessWidget {
                   context.go('/chapter_seven/FutureBuilder');
                 },
                 child: const Text('FutureBuilder')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_seven/dialog');
+                },
+                child: const Text('dialog')),
           ],
         ),
       ),
