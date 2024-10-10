@@ -43,6 +43,11 @@ class C7main extends StatelessWidget {
                   context.go('/chapter_seven/ValueListenable');
                 },
                 child: const Text('ValueListenable')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_seven/FutureBuilder');
+                },
+                child: const Text('FutureBuilder')),
           ],
         ),
       ),
