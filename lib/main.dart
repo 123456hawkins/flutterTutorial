@@ -35,6 +35,8 @@ import 'package:flutter_project/pages/chapter7/PopScopeRoute.dart';
 import 'package:flutter_project/pages/chapter7/ProviderRoute.dart';
 import 'package:flutter_project/pages/chapter7/ThemeTestRoute.dart';
 import 'package:flutter_project/pages/chapter7/ValueListenableRoute.dart';
+import 'package:flutter_project/pages/chapter8/C8main.dart';
+import 'package:flutter_project/pages/chapter8/rawPointerEvent.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
@@ -283,6 +285,18 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                 },
               )
             ]),
+        GoRoute(
+            path: 'chapter_eight',
+            builder: (BuildContext context, GoRouterState state) {
+              return const C8main();
+            },
+            routes: [
+              GoRoute(
+                  path: 'rawPointerEvent',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const rawPointerEvent();
+                  }),
+            ]),
       ]),
 ]);
 
@@ -480,7 +494,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               const FindAncestorWidget(),
               const Echo(text: 'stateless  widget'),
@@ -537,6 +551,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     context.go('/chapter_seven');
                   },
                   child: const Text('跳转第七章')),
+              ElevatedButton(
+                  onPressed: () {
+                    context.go('/chapter_eight');
+                  },
+                  child: const Text('跳转第八章')),
             ],
           ),
         ),
