@@ -19,7 +19,32 @@ class C8main extends StatelessWidget {
                 onPressed: () {
                   context.go('/chapter_eight/rawPointerEvent');
                 },
-                child: const Text('原始指针事件'))
+                child: const Text('原始指针事件')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_eight/gestureDetect');
+                },
+                child: const Text('手势识别')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_eight/dragDetect');
+                },
+                child: const Text('拖拽识别')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_eight/gestureScale');
+                },
+                child: const Text('放大识别')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_eight/waterMask');
+                },
+                child: const Text('水印测试')),
+            ElevatedButton(
+                onPressed: () {
+                  context.go('/chapter_eight/notification');
+                },
+                child: const Text('通知')),
           ],
         ),
       ),

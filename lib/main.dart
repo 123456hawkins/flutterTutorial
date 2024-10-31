@@ -36,7 +36,12 @@ import 'package:flutter_project/pages/chapter7/ProviderRoute.dart';
 import 'package:flutter_project/pages/chapter7/ThemeTestRoute.dart';
 import 'package:flutter_project/pages/chapter7/ValueListenableRoute.dart';
 import 'package:flutter_project/pages/chapter8/C8main.dart';
+import 'package:flutter_project/pages/chapter8/GestureDetectRoute.dart';
+import 'package:flutter_project/pages/chapter8/WaterMaskTest.dart';
+import 'package:flutter_project/pages/chapter8/dragDetect.dart';
+import 'package:flutter_project/pages/chapter8/gestureTestScale.dart';
 import 'package:flutter_project/pages/chapter8/rawPointerEvent.dart';
+import 'package:flutter_project/pages/chapter8/testNotificationRoute.dart';
 import 'package:flutter_project/pages/chpter4/alignLayout.dart';
 import 'package:flutter_project/pages/chpter4/c4main.dart';
 import 'package:flutter_project/pages/chpter4/constraints.dart';
@@ -46,6 +51,8 @@ import 'package:flutter_project/pages/chpter4/linearLayout.dart';
 import 'package:flutter_project/pages/chpter4/stackLayout.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_project/pages/chapter3/TextPage.dart';
+// 引入事件总线
+import 'package:flutter_project/utils/eventBus.dart';
 
 void main() {
   // 应用入口
@@ -295,6 +302,31 @@ final GoRouter _router = GoRouter(routes: <RouteBase>[
                   path: 'rawPointerEvent',
                   builder: (BuildContext context, GoRouterState state) {
                     return const rawPointerEvent();
+                  }),
+              GoRoute(
+                  path: 'gestureDetect',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const GestureDetectRoute();
+                  }),
+              GoRoute(
+                  path: 'dragDetect',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return dragDetect();
+                  }),
+              GoRoute(
+                  path: 'gestureScale',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return gestureTestScale();
+                  }),
+              GoRoute(
+                  path: 'waterMask',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return WaterMaskTest();
+                  }),
+              GoRoute(
+                  path: 'notification',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return testNotificationRoute();
                   }),
             ]),
       ]),
